@@ -6,6 +6,7 @@ const app = Vue.createApp({
             box3: false
         }
     },
+    // All the functions go here
     methods: {
         boxSelected(box) {
             if (box === 'A') {
