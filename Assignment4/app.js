@@ -15,6 +15,7 @@ const app= Vue.createApp({
         toggle(){
             this.isHidden=!this.isHidden;
         },setText(){
+            //refs is used to grab the input once it is fully entered, rather than on each keystroke.
             this.userInput= this.$refs.input1.value;
         }
     },
