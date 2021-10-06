@@ -14,6 +14,8 @@ const app= Vue.createApp({
         },
         toggle(){
             this.isHidden=!this.isHidden;
+        },setText(){
+            this.userInput= this.$refs.input1.value;
         }
     },
     computed:{
