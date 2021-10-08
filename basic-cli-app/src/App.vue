@@ -1,6 +1,10 @@
 <template>
   <section>
-    <header><h1>My Friends List</h1></header>
+    <header>
+      <h1>My Friends List</h1>
+      <button @click="getDataFromAPI">Get Data From API</button>
+    </header>
+
     <new-friend @add-contact="addFriend"></new-friend>
     <ul>
       <friend-contact
@@ -20,8 +24,10 @@
 
 
 <script>
+import axios from "axios";
 import FriendContact from "./components/FriendContact.vue";
 import NewFriend from "./components/NewFriend.vue";
+const BASE_URL = "https://fakestoreapi.com/products";
 export default {
   components: { FriendContact, NewFriend },
   data() {
@@ -61,6 +67,11 @@ export default {
     },
     deleteRecord(id) {
       this.friends = this.friends.filter((friend) => friend.id !== id);
+    },
+    getDataFromAPI() {
+      alert("clicked");
+      const res = axios.get(BASE_URL);
+      console.log(res);
     },
   },
 };

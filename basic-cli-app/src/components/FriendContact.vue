@@ -16,7 +16,7 @@
 <script>
 export default {
   //   props: ["name", "phoneNumber", "emailAddress", "isFavorite"],
-  emits: ["toggle-favorite", , "delete-friend"],
+  emits: ["toggle-favorite", "delete-friend"],
   props: {
     id: {
       type: String,
