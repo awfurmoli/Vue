@@ -16,6 +16,7 @@ export default {
 };
 </script>
 
+// This style will be only applied to this component
 <style scoped>
 section header {
   display: flex;
