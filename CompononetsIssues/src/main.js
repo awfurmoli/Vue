@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-
+// a better way is to import each component inside a component its used. Only make reusable components global.
 import App from './App.vue';
 import ActiveElement from './components/ActiveElement.vue';
 import KnowledgeBase from './components/KnowledgeBase.vue';
