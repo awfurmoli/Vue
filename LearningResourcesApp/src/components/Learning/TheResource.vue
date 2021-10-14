@@ -6,9 +6,10 @@
     <base-button @click="switchTabs('add-resource')" :mode="AddResButton"
       >Add Resource</base-button
     >
-     <component :is="selectedTab"></component>
+    <keep-alive>
+      <component :is="selectedTab"></component>
+    </keep-alive>
   </base-card>
- 
 
   <!-- <stored-resources :data="data"></stored-resources> -->
 </template>
@@ -41,11 +42,31 @@ export default {
   provide() {
     return {
       resources: this.learningData,
+      addResource: this.addResource,
+      removeResource: this.removeResource,
     };
   },
   methods: {
     switchTabs(tab) {
       this.selectedTab = tab;
+    },
+    addResource(title, description, url) {
+      const obj = {
+        title: title,
+        description: description,
+        url: url,
+        id: new Date().toISOString(),
+      };
+
+      this.learningData.unshift(obj);
+      this.selectedTab = 'stored-resources';
+    },
+    removeResource(id) {
+      const itemIndex = this.learningData.findIndex((res) => id === res.id);
+      console.log(itemIndex);
+      console.log(this.learningData);
+      this.learningData.splice(itemIndex, 1);
+      console.log(this.learningData);
     },
   },
   computed: {
