@@ -90,6 +90,9 @@
       </div>
     </div>
     <div class="form-control">
+      <rating-control v-model="rating"></rating-control>
+    </div>
+    <div class="form-control">
       <div>
         <input
           id="interest-tutorials"
@@ -106,7 +109,9 @@
   </form>
 </template>
 <script>
+import RatingControl from './RatingControl.vue';
 export default {
+  components: { RatingControl },
   data() {
     return {
       userName: '',
@@ -116,22 +121,18 @@ export default {
       how: null,
       confirm: false,
       userNameValid: 'pending',
+      rating: null,
     };
   },
   methods: {
     submitData() {
-      console.log(this.userName);
-      console.log(typeof this.userAge);
-      console.log(this.referrer);
-      console.log(this.how);
-      console.log(this.interest);
-      console.log(this.confirm);
       this.userName = '';
       this.userAge = '';
       this.referrer = 'google';
       this.how = null;
       this.interest = [];
       this.confirm = false;
+      this.rating = null;
     },
     validateUserName() {
       if (this.userName.trim() === '') {
