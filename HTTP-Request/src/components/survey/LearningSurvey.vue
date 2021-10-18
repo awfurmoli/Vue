@@ -75,14 +75,14 @@ export default {
       fetch(
         'https://vue-http-api-d9623-default-rtdb.firebaseio.com/surveys.json',
         {
-          method: POST,
+          method: 'POST',
           headers: {
             'content-type': 'application/json',
           },
-          data: {
+          body: JSON.stringify({
             name: this.enteredName,
             rating: this.chosenRating,
-          },
+          }),
         }
       );
 
