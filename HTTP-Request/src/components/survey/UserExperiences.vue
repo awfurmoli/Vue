@@ -8,6 +8,7 @@
         >
       </div>
       <p v-if="isLoading">Loading...</p>
+      <p v-else-if="!isLoading && error">{{ error }}</p>
       <p v-else-if="!isLoading && (!results || results.length === 0)">
         No Data exist, start adding.
       </p>
@@ -31,6 +32,7 @@ export default {
     return {
       results: [],
       isLoading: false,
+      error: null,
     };
   },
   components: {
@@ -42,6 +44,7 @@ export default {
   methods: {
     loadSurveys() {
       this.isLoading = true;
+      this.error = null;
       fetch(
         'https://vue-http-api-d9623-default-rtdb.firebaseio.com/surveys.json'
       )
@@ -62,6 +65,11 @@ export default {
             });
           }
           this.results = reuslts;
+        })
+        .catch((error) => {
+          this.isLoading = false;
+          console.log(error);
+          this.error = 'Failed to Fetch the data, Try again later!';
         });
     },
   },
