@@ -11,7 +11,10 @@ export default {
   props: ['name', 'memberCount', 'id'],
   computed: {
     teamMemberLink() {
-      return '/teams/' + this.id;
+      // return '/teams/' + this.id;
+      //The router-link "to" attribute can take objects as below
+      // It can take to named route and also pass the expected parameters
+      return { name: 'teams-member', params: { teamId: this.id } };
     },
   },
 };

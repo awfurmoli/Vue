@@ -20,6 +20,7 @@ export default {
   components: {
     UserItem,
   },
+  // teamId is recived is the id at the end of /teams/ , this will get us the clicked Id.
   props: ['teamId'],
   inject: ['users', 'teams'],
   data() {
@@ -45,6 +46,7 @@ export default {
   created() {
     this.loadMembers(this.teamId);
   },
+  // Watch for new Id and update the UI/ otherwise the old id will be shown.
   watch: {
     teamId(newId) {
       this.loadMembers(newId);

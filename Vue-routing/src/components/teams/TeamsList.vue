@@ -9,6 +9,7 @@
         :member-count="team.members.length"
       ></teams-item>
     </ul>
+    <!-- This will contain the child route element defined on main.js -->
     <router-view></router-view>
   </div>
 </template>
