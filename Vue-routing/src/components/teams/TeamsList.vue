@@ -26,11 +26,7 @@ export default {
 </script>
 
 <style scoped>
-div {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-}
+
 ul {
   list-style: none;
   margin: 2rem auto;
